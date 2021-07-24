@@ -38,7 +38,6 @@ class PictureController extends Controller
      */
     public function store(Request $request)
     {
-        // See PictureControllerTest to see what this should do
         // Validate the inputs
         $request->validate([
             'name' => 'required',
@@ -51,15 +50,16 @@ class PictureController extends Controller
                 'image' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
             ]);
 
-            // Save the file locally in the storage/public/
+            // Save the file locally in the public
             $request->file->store('public');
 
-            // Store the record
-            $picture = new Picture([
+
+            $pictures = new Picture([
                 "name" => $request->get('name'),
                 "file_path" => $request->file->hashName()
             ]);
-            $picture->save(); // Finally, save the record.
+
+            $pictures->save(); // Finally, save the record.
         }
 
         return redirect('/');
