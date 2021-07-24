@@ -54,7 +54,7 @@ class PictureController extends Controller
             $request->file->store('public');
 
 
-            $pictures = new Picture([
+            $pictures = new Picture([ // save
                 "name" => $request->get('name'),
                 "file_path" => $request->file->hashName()
             ]);
