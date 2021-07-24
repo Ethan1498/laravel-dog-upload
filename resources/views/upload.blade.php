@@ -7,7 +7,6 @@
         <!-- Add CSRF Token -->
         @csrf
     <div class="form-group">
-        <label>Product Name</label>
         <input type="text" class="form-control" name="name" required>
     </div>
     <div class="form-group">

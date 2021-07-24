@@ -51,18 +51,18 @@ class PictureController extends Controller
                 'image' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
             ]);
 
-            // Save the file locally in the storage/public/ folder under a new folder named /product
-            $request->file->store('product', 'public');
+            // Save the file locally in the storage/public/
+            $request->file->store('public');
 
-            // Store the record, using the new file hashname which will be it's new filename identity.
-            $product = new Product([
+            // Store the record
+            $picture = new Picture([
                 "name" => $request->get('name'),
                 "file_path" => $request->file->hashName()
             ]);
-            $product->save(); // Finally, save the record.
+            $picture->save(); // Finally, save the record.
         }
 
-        return view('products.create');
+        return redirect('/');
     }
 
     /**
