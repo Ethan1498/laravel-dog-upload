@@ -51,10 +51,10 @@ class PictureController extends Controller
             ]);
 
             // Save the file locally in the public
-            $request->file->store('public');
+            $request->file->store('app/public/');
 
 
-            $pictures = new Picture([ // save
+            $pictures = new picture([ // save
                 "name" => $request->get('name'),
                 "file_path" => $request->file->hashName()
             ]);
