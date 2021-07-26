@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Picture;
@@ -73,6 +74,9 @@ class PictureController extends Controller
      */
     public function upvote(Request $request, Picture $picture)
     {
-        
+    $picture->votes ++;
+        $picture->save();
+
+        return redirect('/', 302);
     }
 }

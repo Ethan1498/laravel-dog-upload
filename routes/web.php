@@ -25,4 +25,4 @@ Route::resources([
 Route::post('/pictures/{picture}/upvote', [PictureController::class, 'upvote'])->name('pictures.upvote');
 
 Route::resource('pictures', 'App\Http\Controllers\PictureController');
-Route::post('/pictures/{id}/upvote/', 'App\Http\Controllers\PictureController@upvote');
+Route::POST('upvote', 'App\Http\Controllers\PictureController@upvote');
