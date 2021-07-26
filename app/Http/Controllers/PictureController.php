@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Picture;
@@ -38,29 +39,26 @@ class PictureController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate the inputs
         $request->validate([
-            'name' => 'required',
+            'image' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
+        ]);
+        
+        $file = $request->file;
+
+        $name = $request->get('name');
+
+        $fileName = $file->hashName();
+
+
+        $pictures = new Picture([ // save to db
+            "name" => $name,
+            "file_path" => $fileName
         ]);
 
-        // ensure the request has a file before we attempt anything else.
-        if ($request->hasFile('file')) {
+        $pictures->save(); // Finally, save the record.
 
-            $request->validate([
-                'image' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
-            ]);
-
-            // Save the file locally in the public
-            $request->file->store('app/public/');
-
-
-            $pictures = new picture([ // save
-                "name" => $request->get('name'),
-                "file_path" => $request->file->hashName()
-            ]);
-
-            $pictures->save(); // Finally, save the record.
-        }
+        // Save the file locally in the public folder
+        $file->move(storage_path('app/public/'), $fileName);
 
         return redirect('/');
     }
@@ -73,9 +71,9 @@ class PictureController extends Controller
      */
     public function upvote(Request $request, Picture $picture)
     {
-    $picture->votes ++;
+        $picture->votes ++;
         $picture->save();
 
-        return redirect('/', 302);
+        return redirect('/');
     }
 }

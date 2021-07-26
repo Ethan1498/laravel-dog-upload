@@ -13,7 +13,6 @@
                 @csrf
                 <button>Upvote dog!</button>
             </form>
-
         </div>
     </div>
 @endforeach

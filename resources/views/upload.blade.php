@@ -14,7 +14,6 @@
     </div>
     <button type="submit">Submit</button>
 </form>
-</form>
 </div>
 
 @endsection
