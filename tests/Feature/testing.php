@@ -1,0 +1,1 @@
+lluminate\Foundation\Bootstrap\HandleExceptions::handleError("Undefined variable: request", "/Users/ethangough/Work/jr-php-dev-exercise/tests/Feature/PictureControllerTest.php", [Object(Illuminate\Http\Testing\File), Object(Illuminate\Testing\TestResponse)])
