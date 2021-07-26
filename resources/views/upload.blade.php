@@ -6,13 +6,13 @@
     <form action="{{ route('pictures.store') }}" method="post" enctype="multipart/form-data">
         <!-- Add CSRF Token -->
         @csrf
-    <div class="form-group">
-        <input type="text" class="form-control" name="name" required>
+    <div class="form-group name-form">
+        <input type="text" class="form-control" name="name" required placeholder="Name of dog">
     </div>
-    <div class="form-group">
+    <div class="form-group file-form">
         <input type="file" name="file" required>
     </div>
-    <button type="submit">Submit</button>
+    <button class="submit-form" type="submit">Submit</button>
 </form>
 </div>
 

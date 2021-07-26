@@ -1,0 +1,15 @@
+.name-form{
+    border: 1px solid black;
+    width: 50%;
+    margin-top: 25px;
+}
+.file-form{
+    width: 50%;
+    margin-top: 25px;
+}
+.submit-form{
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid black;
+    margin-top: 25px;
+}
