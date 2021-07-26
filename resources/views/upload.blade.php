@@ -10,7 +10,7 @@
         <input type="text" class="form-control" name="name" required placeholder="Name of dog">
     </div>
     <div class="form-group file-form">
-        <input type="file" name="file" required>
+        <input type="file" name="image" id="image" required>
     </div>
     <button class="submit-form" type="submit">Submit</button>
 </form>

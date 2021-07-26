@@ -39,11 +39,12 @@ class PictureController extends Controller
      */
     public function store(Request $request)
     {
+            
         $request->validate([
             'image' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
         ]);
         
-        $file = $request->file;
+        $file = $request->image;
 
         $name = $request->get('name');
 
