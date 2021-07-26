@@ -71,7 +71,7 @@ class PictureControllerTest extends TestCase
         $dog->votes = 10;
         $dog->save();
 
-        $response = $this->post('/pictures/upvote', [
+        $response = $this->post('/pictures/1/upvote', [
             'picture' => $dog
         ]);
 
